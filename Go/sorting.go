@@ -137,10 +137,6 @@ func main() {
 			numbers = append(numbers, [][]int{temp}...)
 		}
 	}
-	items1 := make([]opts.LineData, 0)
-	items2 := make([]opts.LineData, 0)
-	items3 := make([]opts.LineData, 0)
-	items4 := make([]opts.LineData, 0)
 
 	// Escribimos un archivo con los tiempos de ejecución para cada algoritmo
 	GH, errGH := os.Create("GH.csv")
@@ -190,7 +186,6 @@ func main() {
 		}
 		prom = prom / veces
 		fmt.Printf("HeapSort: \t%v\n",prom)
-		items1 = append(items1, opts.LineData{Value: prom})
 
 		// MERGESORT
 		prom = 0
@@ -208,7 +203,6 @@ func main() {
 		}
 		prom = prom / veces
 		fmt.Printf("MergeSort: \t%v\n",prom)
-		items2 = append(items2, opts.LineData{Value: prom})
 
 		// QUICKSORT
 		prom = 0
@@ -226,7 +220,6 @@ func main() {
 		}
 		prom = prom / veces
 		fmt.Printf("QuickSort: \t%v\n",prom)
-		items3 = append(items3, opts.LineData{Value: prom})
 
 		// INSERTIONSORT
 		prom = 0
@@ -244,7 +237,6 @@ func main() {
 		}
 		prom = prom / veces
 		fmt.Printf("InsertionSort: \t%v\n",prom)
-		items4 = append(items4, opts.LineData{Value: prom})
 		
 		
 		GH.WriteString("\n")
