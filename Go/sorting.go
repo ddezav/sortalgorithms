@@ -8,9 +8,6 @@ import (
 	"io/ioutil"
 	"strings"
 	"os"
-	"github.com/go-echarts/go-echarts/v2/charts"
-	"github.com/go-echarts/go-echarts/v2/opts"
-	"github.com/go-echarts/go-echarts/v2/types"
 )
 
 func mergeSort(items []int) []int {
@@ -256,25 +253,5 @@ func main() {
 		GI.WriteString("\n")
 	}
     
-
-	// create a new bar instance
-	bar := charts.NewLine()
-	// set some global options like Title/Legend/ToolTip or anything else
-	bar.SetGlobalOptions(
-		charts.WithInitializationOpts(opts.Initialization{Theme: types.ThemeVintage}),
-		charts.WithTitleOpts(opts.Title{
-			Title:    "Line example in Westeros theme",
-			Subtitle: "Line chart rendered by the http server this time",
-		}))
-
-	// Put data into instance
-	bar.SetXAxis([]string{"100","1000","2000","3000","4000","5000","6000","7000","8000","9000","10000","20000","30000","40000","50000"}).
-	AddSeries("Category A", items1).
-	AddSeries("Category B", items2).
-	AddSeries("Category C", items3).
-	AddSeries("Category C", items4)
-	// Where the magic happens
-	f, _ := os.Create("bar.html")
-	bar.Render(f)
     
 }
